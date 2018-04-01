@@ -1,0 +1,66 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "value": "VNET-Network"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.1.96.0/20"
+    },
+    "subnet1Name": {
+      "value": "GatewaySubnet"
+    },
+    "subnet1Prefix": {
+      "value": "10.1.96.0/24"
+    },
+    "subnet2Name": {
+      "value": "Network"
+    },
+    "subnet2Prefix": {
+      "value": "10.1.97.0/25"
+    },
+    "subnet3Name": {
+      "value": "Prod-AppGW-Subnet-1"
+    },
+    "subnet3Prefix": {
+      "value": "10.1.97.128/25"
+    },
+    "subnet5Name": {
+      "value": "DMZ-Subnet-1"
+    },
+    "subnet5Prefix": {
+      "value": "10.1.98.0/24"
+    },
+    "subnet7Name": {
+      "value": "Prod-IaaS-Subnet-1"
+    },
+    "subnet7Prefix": {
+      "value": "10.1.100.0/23"
+    },
+    "subnet15Name": {
+      "value": "Prod-PaaS-Subnet-1"
+    },
+    "subnet15Prefix": {
+      "value": "10.1.108.0/22"
+    },
+    "DNSServerAddress": {
+      "value": ["10.1.1.1","168.63.129.16"]
+    },
+    "subnet2NSGName": {
+      "value": "NSG-IaaS"
+    },
+    "subnet3NSGName": {
+      "value": "NSG-IaaS"
+    },
+    "subnet5NSGName": {
+      "value": "NSG-IaaS"
+    },
+    "subnet7NSGName": {
+      "value": "NSG-IaaS"
+    },   
+    "subnet15NSGName": {
+      "value": "NSG-PaaS"
+    }    
+  }
+}
