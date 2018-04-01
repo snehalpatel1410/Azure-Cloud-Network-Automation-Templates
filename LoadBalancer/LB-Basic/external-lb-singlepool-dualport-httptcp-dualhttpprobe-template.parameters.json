@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "lbName": {
-      "value": "ILB-DUAL-USWest-Dev-ONBrowse"
+      "value": "ELB-DUAL-App"
     },
     "lbSKU": {
       "value": "Basic"
     },
     "vnetResourceGroupName": {
-      "value": "RG-Network-Exploratorium"
+      "value": "RG-Network"
     },
     "vnetName": {
-      "value": "VNET-USWest-Dev-Exploratorium"
+      "value": "VNET-Network"
     },
     "subnetName": {
       "value": "Dev-IaaS-Subnet-1"
