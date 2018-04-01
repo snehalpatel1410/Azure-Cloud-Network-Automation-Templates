@@ -1,0 +1,42 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "lbName": {
+      "value": "ILB2-USWest-Dev-DNS-Exploratorium"
+    },
+    "lbSKU": {
+      "value": "Basic"
+    },
+    "vnetResourceGroupName": {
+      "value": "RG-Network-Exploratorium"
+    },
+    "vnetName": {
+      "value": "VNET-USWest-Dev-Exploratorium"
+    },
+    "subnetName": {
+      "value": "Dev-IaaS-Subnet-1"
+    },
+    "lbRuleProtocol": {
+      "value": "udp"
+    },
+    "probeProtocol": {
+      "value": "tcp"
+    },
+    "requestPath": {
+      "value": "/"
+    },
+    "frontendPortNumber": {
+      "value": 53
+    },
+    "backendPortNumber": {
+      "value": 53
+    },
+    "lbPrivateIP": {
+      "value": "10.116.244.20"
+    },
+    "lbIPAllocationMethod": {
+      "value": "Static"
+    }
+  }
+}

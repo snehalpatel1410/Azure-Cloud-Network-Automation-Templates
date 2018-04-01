@@ -1,0 +1,118 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "lbName": {
+      "type": "string"
+    },
+    "lbSKU": {
+      "type": "string"
+    },
+    "vnetResourceGroupName": {
+      "type": "string"
+    },
+    "vnetName": {
+      "type": "string"
+    },
+    "subnetName": {
+      "type": "string"
+    },
+    "lbRuleProtocol": {
+      "type": "string"
+    },    
+    "probeProtocol": {
+      "type": "string"
+    },    
+    "requestPath": {
+      "type": "string"
+    },
+    "frontendPortNumber": {
+      "type": "int"
+    },
+    "backendPortNumber": {
+      "type": "int"
+    }
+  },
+  "variables": {
+    "rg-location": "westus",
+    "namingInfix": "[parameters('lbName')]",
+    "vnetID": "[resourceId(parameters('vnetResourceGroupName'),'Microsoft.Network/virtualNetworks',parameters('vnetName'))]",
+    "loadBalancerName": "[parameters('lbName')]",
+    "publicIPAddressName": "[concat(variables('loadBalancerName'), '-PUB')]",
+    "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+    "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+    "natPoolName": "[concat(variables('namingInfix'), 'natpool')]",
+    "bePoolName": "[concat(variables('loadBalancerName'), '-BPool')]",
+    "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/',variables('bePoolName'))]",
+    "probeName": "[concat(variables('loadBalancerName'), '-Probe')]",
+    "lbRuleName": "[concat(variables('loadBalancerName'), '-LBRule')]",
+    "lbProbeID": "[concat(variables('lbID'),'/probes/',variables('probeName'))]",
+    "frontEndIPName": "[concat(variables('loadBalancerName'), '-FEIP')]",
+    "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/', variables('frontEndIPName'))]",
+    "httpRequestPath": "[parameters('requestPath')]",
+    "nonhttpRequestPath": "",
+    "computeApiVersion": "2017-03-30",
+    "networkApiVersion": "2017-04-01"
+  },
+  "resources": [{
+      "type": "Microsoft.Network/publicIPAddresses",
+      "name": "[variables('publicIPAddressName')]",
+      "location": "[variables('rg-location')]",
+      "apiVersion": "[variables('networkApiVersion')]",
+      "properties": {
+        "publicIPAllocationMethod": "Static"
+      }
+    },
+    {
+      "type": "Microsoft.Network/loadBalancers",
+      "name": "[variables('loadBalancerName')]",
+      "location": "[variables('rg-location')]",
+      "apiVersion":  "[variables('networkApiVersion')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]"
+      ],
+      "properties": {
+        "frontendIPConfigurations": [{
+          "name": "[variables('frontEndIPName')]",
+          "properties": {
+            "publicIPAddress": {
+              "id": "[variables('publicIPAddressID')]"
+            }
+          }
+        }],
+        "backendAddressPools": [{
+          "name": "[variables('bePoolName')]"
+        }],  
+        "loadBalancingRules": [{
+          "name": "[variables('lbRuleName')]",
+          "properties": {
+            "frontendIPConfiguration": {
+              "id": "[variables('frontEndIPConfigID')]"
+            },
+            "backendAddressPool": {
+              "id": "[variables('lbPoolID')]"
+            },
+            "protocol": "[parameters('lbRuleProtocol')]",
+            "frontendPort": "[parameters('frontendPortNumber')]",
+            "backendPort": "[parameters('backendPortNumber')]",
+            "enableFloatingIP": "false",
+            "idleTimeoutInMinutes": 5,
+            "probe": {
+              "id": "[variables('lbProbeID')]"
+            }
+          }
+        }],        
+        "probes": [{
+          "name": "[variables('probeName')]",
+          "properties": {
+            "protocol": "[parameters('probeProtocol')]",
+            "port": "[parameters('backendPortNumber')]",
+            "requestPath": "[parameters('requestPath')]",
+            "intervalInSeconds": 5,
+            "numberOfProbes": 2
+          }
+        }]
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "lbName": {
+      "value": "ILB-DUAL-USWest-Dev-ONBrowse"
+    },
+    "lbSKU": {
+      "value": "Basic"
+    },
+    "vnetResourceGroupName": {
+      "value": "RG-Network-Exploratorium"
+    },
+    "vnetName": {
+      "value": "VNET-USWest-Dev-Exploratorium"
+    },
+    "subnetName": {
+      "value": "Dev-IaaS-Subnet-1"
+    },
+    "lbRuleProtocol": {
+      "value": "tcp"
+    },
+    "probeProtocol": {
+      "value": "http"
+    },
+    "requestPath": {
+      "value": "/healthz"
+    },
+    "frontendPortNumber": {
+      "value": 80
+    },
+    "backendPortNumber": {
+      "value": 80
+    },
+    "lbRuleProtocol2": {
+      "value": "tcp"
+    },
+    "probeProtocol2": {
+      "value": "http"
+    },
+     "requestPath2": {
+      "value": "/healthz"
+    },
+    "frontendPortNumber2": {
+      "value": 443
+    },
+    "backendPortNumber2": {
+      "value": 443
+    },
+    "probePortNumber2": {
+      "value": 80
+    }
+  }
+}
