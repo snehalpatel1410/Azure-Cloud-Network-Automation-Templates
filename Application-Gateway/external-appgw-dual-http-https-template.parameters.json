@@ -6,7 +6,7 @@
       "value": "VNET-Name"
     },
     "vnetResourceGroupName": {
-      "value": "RG-Network
+      "value": "RG-Network"
     },
     "applicationGatewaySubnetName": {
       "value": "Dev-AppGW-Subnet-1"
