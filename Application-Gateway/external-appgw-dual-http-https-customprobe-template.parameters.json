@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vnetName": {
-      "value": "VNET-Name"
+      "value": "VNET-Name-Test"
     },
     "vnetResourceGroupName": {
       "value": "RG-Network"
