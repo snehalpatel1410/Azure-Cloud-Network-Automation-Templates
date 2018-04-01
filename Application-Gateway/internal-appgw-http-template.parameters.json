@@ -1,0 +1,43 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "value": "VNET-USWest-Dev-Exploratorium"
+    },
+    "vnetResourceGroupName": {
+      "value": "RG-Network-Exploratorium"
+    },
+    "applicationGatewaySubnetName": {
+      "value": "Dev-AppGW-Subnet-1"
+    },
+    "applicationGatewayName": {
+      "value": "IAG-SP-Test"
+    },
+    "applicationGatewaySize": {
+      "value": "Standard_Small"
+    },
+    "applicationGatewayInstanceCount": {
+      "value": 1
+    },
+    "frontendPort": {
+      "value": 80
+    },
+    "backendPort": {
+      "value": 80
+    },
+    "backendIPAddresses": {
+      "value": [
+        {
+          "IpAddress": "10.116.244.9"
+        },
+        {
+          "IpAddress": "10.116.244.10"
+        }
+      ]
+    },
+    "cookieBasedAffinity": {
+      "value": "Disabled"
+    }
+  }
+}
