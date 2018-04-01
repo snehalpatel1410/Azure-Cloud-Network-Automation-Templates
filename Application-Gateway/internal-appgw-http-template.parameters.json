@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vnetName": {
-      "value": "VNET-USWest-Dev-Exploratorium"
+      "value": "VNET-Network"
     },
     "vnetResourceGroupName": {
-      "value": "RG-Network-Exploratorium"
+      "value": "RG-Network"
     },
     "applicationGatewaySubnetName": {
       "value": "Dev-AppGW-Subnet-1"
