@@ -1,0 +1,33 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworkName": {
+            "value": "VNET-Network"
+        },
+        "gatewayPublicIPName": {
+            "value": "ERGW-Network"
+        },
+        "gatewayName": {
+            "value": "ERGW-Network"
+        },
+        "addressPrefix": {
+            "value": "10.1.48.0/20"
+        },
+        "subnetName":{
+            "value": "Network"
+        },
+        "subnetPrefix": {
+            "value": "10.1.49.0/25"
+        },
+        "gatewaySubnetPrefix": {
+            "value": "10.1.48.0/24"
+        },
+        "connectionName": {
+            "value": "CONN-ER-ERGW-VNET-Network"
+        },
+        "circuitName": {
+            "value": "ER-Network"
+        }
+    }
+}
