@@ -1,1 +1,1 @@
-This is a test repo for testing Azure HCF Network Automation.
+These ARM templates are for setting up Azure Network for testing PrivateEndpoint and PrivateLink.
