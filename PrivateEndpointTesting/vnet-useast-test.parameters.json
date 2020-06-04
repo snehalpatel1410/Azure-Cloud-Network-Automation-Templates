@@ -1,0 +1,30 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "value": "sp-test-vnet"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.99.0.0/16"
+    },
+    "subnet1Name": {
+      "value": "tempsubnet1"
+    },
+    "subnet1Prefix": {
+      "value": "10.99.0.0/24"
+    },
+    "subnet2Name": {
+      "value": "testsubnet"
+    },
+    "subnet2Prefix": {
+      "value": "10.99.1.0/24"
+    },
+    "subnet2NSGName": {
+      "value": "NSG-USEast-Test"
+    },      
+    "DNSServerAddress": {
+      "value": ["8.8.8.8","1.1.1.1"]
+    }
+  }
+}
